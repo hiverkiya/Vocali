@@ -11,7 +11,11 @@ node_modules
 .env.development.local
 .env.test.local
 .env.production.local
+# lockfiles (keep only root one)
+**/pnpm-lock.yaml
 
+# typescript
+*.tsbuildinfo
 # Testing
 coverage
 
