@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@vapi-ai/web": "^2.5.2",
     "@workspace/backend": "workspace:*",
     "@workspace/ui": "workspace:*",
     "class-variance-authority": "^0.7.1",
