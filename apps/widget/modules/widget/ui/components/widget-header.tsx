@@ -10,11 +10,16 @@ export const WidgetHeader = ({
   return (
     <header
       className={cn(
-        "bg-gradient-to-b from-primary to-[#8a8aff] p-4 text-primary-foreground",
+        "relative overflow-hidden bg-gradient-to-b from-[#8a8aff]/50 to-[#8a8aff]/10 p-4 font-semibold text-accent-foreground",
         className
       )}
     >
-      {children}
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-30"
+        style={{ backgroundImage: "url('/bg.jpg')" }}
+      />
+
+      <div className="relative z-10">{children}</div>
     </header>
   );
 };
