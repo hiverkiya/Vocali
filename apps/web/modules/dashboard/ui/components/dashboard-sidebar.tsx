@@ -120,7 +120,7 @@ export const DashboardSidebar = () => {
                     tooltip={item.title}
                     className={cn(
                       isActive(item.url) &&
-                        "bg-linear-to-b from-sidebar-primary to-[#8a8aff]! text-sidebar-primary-foreground! hover:to-[#8a8aff]/90!"
+                        "bg-linear-to-b font-semibold! from-sidebar-primary to-[#8a8aff]! text-sidebar-primary-foreground! hover:to-[#8a8aff]/90!"
                     )}
                   >
                     <Link href={item.url}>
@@ -147,7 +147,7 @@ export const DashboardSidebar = () => {
                     tooltip={item.title}
                     className={cn(
                       isActive(item.url) &&
-                        "bg-linear-to-b from-sidebar-primary to-[#8a8aff]! text-sidebar-primary-foreground! hover:to-[#8a8aff]/90!"
+                        "bg-linear-to-b from-sidebar-primary to-[#8a8aff]! font-semibold! text-sidebar-primary-foreground! font-semibold hover:to-[#8a8aff]/90!"
                     )}
                   >
                     <Link href={item.url}>
@@ -174,7 +174,7 @@ export const DashboardSidebar = () => {
                     tooltip={item.title}
                     className={cn(
                       isActive(item.url) &&
-                        "bg-linear-to-b from-sidebar-primary to-[#8a8aff]! text-sidebar-primary-foreground! hover:to-[#8a8aff]/90!"
+                        "bg-linear-to-b from-sidebar-primary to-[#8a8aff]! font-semibold! text-sidebar-primary-foreground! hover:to-[#8a8aff]/90!"
                     )}
                   >
                     <Link href={item.url}>
