@@ -80,7 +80,7 @@ export const DashboardSidebar = () => {
   return (
     <Sidebar className="group" collapsible="icon">
       <SidebarHeader>
-        <SidebarMenu>
+        <SidebarMenu className="space-y-1">
           <SidebarMenuItem>
             <SidebarMenuButton asChild size="lg">
               <OrganizationSwitcher
@@ -111,13 +111,17 @@ export const DashboardSidebar = () => {
         <SidebarGroup>
           <SidebarGroupLabel>Customer Support</SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu>
+            <SidebarMenu className="space-y-1">
               {customerSupportItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     asChild
                     isActive={isActive(item.url)}
                     tooltip={item.title}
+                    className={cn(
+                      isActive(item.url) &&
+                        "bg-linear-to-b from-sidebar-primary to-[#8a8aff]! text-sidebar-primary-foreground! hover:to-[#8a8aff]/90!"
+                    )}
                   >
                     <Link href={item.url}>
                       <item.icon className="size-4" />
@@ -134,13 +138,17 @@ export const DashboardSidebar = () => {
         <SidebarGroup>
           <SidebarGroupLabel>Configuration</SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu>
+            <SidebarMenu className="space-y-1">
               {configurationItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     asChild
                     isActive={isActive(item.url)}
                     tooltip={item.title}
+                    className={cn(
+                      isActive(item.url) &&
+                        "bg-linear-to-b from-sidebar-primary to-[#8a8aff]! text-sidebar-primary-foreground! hover:to-[#8a8aff]/90!"
+                    )}
                   >
                     <Link href={item.url}>
                       <item.icon className="size-4" />
@@ -157,13 +165,17 @@ export const DashboardSidebar = () => {
         <SidebarGroup>
           <SidebarGroupLabel>Account</SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu>
+            <SidebarMenu className="space-y-1">
               {accountItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     asChild
                     isActive={isActive(item.url)}
                     tooltip={item.title}
+                    className={cn(
+                      isActive(item.url) &&
+                        "bg-linear-to-b from-sidebar-primary to-[#8a8aff]! text-sidebar-primary-foreground! hover:to-[#8a8aff]/90!"
+                    )}
                   >
                     <Link href={item.url}>
                       <item.icon className="size-4" />
@@ -177,7 +189,7 @@ export const DashboardSidebar = () => {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <SidebarMenu>
+        <SidebarMenu className="space-y-1">
           <SidebarMenuItem>
             <UserButton
               showName
