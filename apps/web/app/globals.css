@@ -36,7 +36,7 @@
   --popover-foreground: oklch(0.26 0.04 270);
 
   /* 🔥 PRIMARY (better purple) */
-  --primary: oklch(0.62 0.24 280);
+  --primary: #7266ff;
   --primary-foreground: oklch(0.98 0.01 280);
 
   /* Secondary / subtle surfaces */
