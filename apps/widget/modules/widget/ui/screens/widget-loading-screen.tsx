@@ -13,7 +13,6 @@ import {
 import { useEffect, useState } from "react";
 import { useAction, useMutation } from "convex/react";
 import { api } from "@workspace/backend/_generated/api";
-import { Id } from "@workspace/backend/_generated/dataModel";
 
 type InitStep = "org" | "session" | "settings" | "vapi" | "done";
 export const WidgetLoadingScreen = ({

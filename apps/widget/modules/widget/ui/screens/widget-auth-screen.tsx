@@ -30,7 +30,6 @@ const formSchema = z.object({
   email: z.string().email("Invalid email address"),
 });
 
-
 export const WidgetAuthScreen = () => {
   const organizationId = useAtomValue(organizationIdAtom);
   const setContactSessionId = useSetAtom(
@@ -64,12 +63,12 @@ export const WidgetAuthScreen = () => {
       currentUrl: window.location.href,
     };
 
-   const contactSessionId= await createContactSession({
+    const contactSessionId = await createContactSession({
       ...values,
       organizationId,
       metadata,
     });
-    setContactSessionId(contactSessionId)
+    setContactSessionId(contactSessionId);
   };
 
   return (
@@ -86,7 +85,6 @@ export const WidgetAuthScreen = () => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col gap-y-4 p-4"
         >
-          {/* NAME */}
           <FormField
             control={form.control}
             name="name"
@@ -104,7 +102,6 @@ export const WidgetAuthScreen = () => {
             )}
           />
 
-          {/* EMAIL */}
           <FormField
             control={form.control}
             name="email"
@@ -122,7 +119,6 @@ export const WidgetAuthScreen = () => {
             )}
           />
 
-          {/* BUTTON */}
           <Button
             type="submit"
             size="lg"

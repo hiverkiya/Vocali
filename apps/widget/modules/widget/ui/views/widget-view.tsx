@@ -5,8 +5,8 @@ import { WidgetFooter } from "../components/widget-footer";
 import { WidgetHeader } from "../components/widget-header";
 import { WidgetAuthScreen } from "../screens/widget-auth-screen";
 import { screenAtom } from "../../atoms/widget-atoms";
-import { WidgetErrorScreen } from "./widget-error-screen";
-import { WidgetLoadingScreen } from "./widget-loading-screen";
+import { WidgetErrorScreen } from "../screens/widget-error-screen";
+import { WidgetLoadingScreen } from "../screens/widget-loading-screen";
 
 interface Props {
   organizationId: string | null;
