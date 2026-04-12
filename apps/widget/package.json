@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@convex-dev/agent": "^0.6.1",
     "@hookform/resolvers": "^5.2.2",
     "@vapi-ai/web": "^2.5.2",
     "@workspace/backend": "workspace:*",
