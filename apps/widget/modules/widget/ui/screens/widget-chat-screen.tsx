@@ -124,29 +124,33 @@ export const WidgetChatScreen = () => {
               onLoadMore={handleLoadMore}
               ref={topElementRef}
             />
-            {toUIMessages(messages.results ?? [])?.map((message) => {
-              const text =
-                "text" in message && typeof message.text === "string"
-                  ? message.text
-                  : "";
-              return (
-                <AIMessage
-                  from={message.role === "user" ? "user" : "assistant"}
-                  key={message.id}
-                >
-                  <AIMessageContent>
-                    <AIResponse>{text}</AIResponse>
-                  </AIMessageContent>
-                  {message.role === "assistant" && (
-                    <DicebearAvatar
-                      imageUrl="/vocali.svg"
-                      seed="assistant"
-                      size={32}
-                    />
-                  )}
-                </AIMessage>
-              );
-            })}
+            {toUIMessages(messages.results ?? [])
+              ?.filter(
+                (m) => typeof m.text === "string" && m.text.trim() !== ""
+              )
+              .map((message) => {
+                const text =
+                  "text" in message && typeof message.text === "string"
+                    ? message.text
+                    : "";
+                return (
+                  <AIMessage
+                    from={message.role === "user" ? "user" : "assistant"}
+                    key={message.id}
+                  >
+                    <AIMessageContent>
+                      <AIResponse>{text}</AIResponse>
+                    </AIMessageContent>
+                    {message.role === "assistant" && (
+                      <DicebearAvatar
+                        imageUrl="/vocali.svg"
+                        seed="assistant"
+                        size={32}
+                      />
+                    )}
+                  </AIMessage>
+                );
+              })}
             {isThinking && (
               <AIMessage from="assistant" key="thinking">
                 <AIMessageContent className="border-[#d8d1ff] bg-[#f6f2ff] text-[#3b2c8e]/70 shadow-sm">
