@@ -6,6 +6,7 @@ import { paginationOptsValidator } from "convex/server";
 import { saveMessage } from "@convex-dev/agent";
 import { openai } from "@ai-sdk/openai";
 import { generateText } from "ai";
+import { OPERATOR_MESSAGE_ENHANCEMENT_PROMPT } from "../system/ai/constants";
 export const enhanceResponse = action({
   args: {
     prompt: v.string(),
@@ -34,12 +35,7 @@ export const enhanceResponse = action({
       messages: [
         {
           role: "system",
-          content: `Rewrite the operator's message to be more professional, clear, and helpful.
-- Do NOT ask questions
-- Do NOT add new information
-- Do NOT change the meaning
-- Do NOT include explanations
-- Output ONLY the rewritten message`,
+          content: OPERATOR_MESSAGE_ENHANCEMENT_PROMPT,
         },
         {
           role: "user",
