@@ -1,27 +1,28 @@
-import { Geist, Geist_Mono } from "next/font/google"
-import "./globals.css"
-import { Providers } from "@/components/providers"
-import { cn } from "@workspace/ui/lib/utils"
-import { Metadata } from "next"
-import { ClerkProvider } from "@clerk/nextjs"
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+import { Providers } from "@/components/providers";
+import { cn } from "@workspace/ui/lib/utils";
+import { Metadata } from "next";
+import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "@workspace/ui/components/sonner";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
-})
+});
 export const metadata: Metadata = {
   title: "Vocali Web",
   description: "Customer Service Agent",
   icons: {
     icon: "/icon.svg",
   },
-}
+};
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html
@@ -36,9 +37,12 @@ export default function RootLayout({
     >
       <body>
         <ClerkProvider>
-          <Providers>{children}</Providers>
+          <Providers>
+            <Toaster />
+            {children}
+          </Providers>
         </ClerkProvider>
       </body>
     </html>
-  )
+  );
 }
