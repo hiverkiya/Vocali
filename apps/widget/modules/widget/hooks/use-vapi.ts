@@ -1,6 +1,7 @@
 import Vapi from "@vapi-ai/web";
 import { useEffect, useState } from "react";
-
+import { useAtomValue } from "jotai";
+import { vapiSecretsAtom, widgetSettingsAtom } from "../atoms/widget-atoms";
 interface TranscriptMessage {
   role: "user" | "assistant";
   text: string;
@@ -10,6 +11,8 @@ export const useVapi = () => {
   const [vapi, setVapi] = useState<Vapi | null>(null);
   const [isConnected, setIsConnected] = useState(false);
   const [isConnecting, setIsConnecting] = useState(false);
+  const vapiSecrets = useAtomValue(vapiSecretsAtom);
+  const widgetSettings = useAtomValue(widgetSettingsAtom);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [transcript, setTranscript] = useState<TranscriptMessage[]>([]);
   const VAPI_KEY = process.env.NEXT_PUBLIC_VAPI_KEY;
@@ -19,8 +22,11 @@ export const useVapi = () => {
   }
   useEffect(() => {
     // Only for testing the Vapi API, otherwise customers will provide their own API keys
+    if (!vapiSecrets) {
+      return;
+    }
 
-    const vapiInstance = new Vapi(VAPI_KEY);
+    const vapiInstance = new Vapi(vapiSecrets.publicApiKey);
     setVapi(vapiInstance);
 
     vapiInstance.on("call-start", () => {
@@ -66,11 +72,14 @@ export const useVapi = () => {
   }, []);
 
   const startCall = () => {
+    if (!vapiSecrets || !widgetSettings?.vapiSettings?.assistantId) {
+      return;
+    }
     setIsConnecting(true);
 
     if (vapi) {
       // Only for testing the Vapi API, otherwise customers will provide their own Assistant IDs
-      vapi.start(AGENT);
+      vapi.start(widgetSettings.vapiSettings.assistantId);
     }
   };
 
