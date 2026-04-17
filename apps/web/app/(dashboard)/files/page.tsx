@@ -1,3 +1,4 @@
+"use client";
 import { FilesView } from "@/modules/files/ui/views/files-view";
 
 const Page = () => {
