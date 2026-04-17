@@ -36,7 +36,9 @@ export default function RootLayout({
       )}
     >
       <body>
-        <ClerkProvider>
+        <ClerkProvider
+        
+        >
           <Providers>
             <Toaster />
             {children}

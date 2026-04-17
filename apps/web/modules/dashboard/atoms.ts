@@ -5,3 +5,4 @@ import { STATUS_FILTER_KEY } from "./constants";
 export const statusFilterAtom = atomWithStorage<
   Doc<"conversations">["status"] | "all"
 >(STATUS_FILTER_KEY, "all");
+export const isProAtom = atomWithStorage<boolean>("is-pro-user", false);
